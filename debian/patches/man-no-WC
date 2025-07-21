@@ -1,0 +1,25 @@
+From bb0cfe9e83ee3071c2f8ca6b9fcc79cdcaf5e001 Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Thu, 10 Aug 2023 19:42:52 -0400
+Subject: [PATCH 5/5] man no WC
+
+Fix man page syntax: using CW rather than WC
+---
+ man/iio_readdev.1.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/man/iio_readdev.1.in b/man/iio_readdev.1.in
+index eb00e567..5ba0d148 100644
+--- a/man/iio_readdev.1.in
++++ b/man/iio_readdev.1.in
+@@ -86,6 +86,6 @@ stores it (as raw binary) into the file samples.dat
+ .PP
+ And plots the data with gnuplot.
+ .RS
+-.B \f(WCgnuplot \-e \(dq\&set term png; set output 'sample.png'; plot 'sample.dat' binary format='%short%short' using 1 with lines, 'sample.dat' binary format='%short%short' using 2 with lines;\(dq\&\fP
++.B \f(CWgnuplot \-e \(dq\&set term png; set output 'sample.png'; plot 'sample.dat' binary format='%short%short' using 1 with lines, 'sample.dat' binary format='%short%short' using 2 with lines;\(dq\&\fP
+ .RE
+ 
+-- 
+2.39.2
+

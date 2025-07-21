@@ -1,0 +1,27 @@
+From 0f763af9206828aff587a11cf0cb8d830a3f4ca4 Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Thu, 10 Aug 2023 19:36:28 -0400
+Subject: [PATCH 2/5] python setup libiio
+Forwarded: not-needed
+
+Avoid failing check while building Debian packages.
+---
+ bindings/python/setup.py.cmakein | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bindings/python/setup.py.cmakein b/bindings/python/setup.py.cmakein
+index 33a4eb91..3b6bb1d3 100644
+--- a/bindings/python/setup.py.cmakein
++++ b/bindings/python/setup.py.cmakein
+@@ -40,7 +40,7 @@ class InstallWrapper(install):
+     libiio library is actually installed"""
+ 
+     def run(self):
+-        self._check_libiio_installed()
++        #self._check_libiio_installed()
+         # Run the standard PyPi copy
+         install.run(self)
+ 
+-- 
+2.39.2
+

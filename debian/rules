@@ -1,4 +1,34 @@
 #!/usr/bin/make -f
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
-	dh $@
+	dh $@ --builddirectory=build --with python3
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DCMAKE_SKIP_INSTALL_RPATH=On -DWITH_SYSTEMD=On -DWITH_SYSVINIT=On \
+		-DPYTHON_BINDINGS=ON -DWITH_DOC=ON -DWITH_MAN=ON \
+		-DSYSTEMD_UNIT_INSTALL_DIR=/usr/lib/systemd/system \
+		-DUDEV_RULES_INSTALL_DIR=/usr/lib/udev/rules.d \
+		-DWITH_SERIAL_BACKEND=ON
+
+override_dh_compress:
+	dh_compress -X.c -X.C
+
+override_dh_auto_install:
+	dh_auto_install
+	- rm -f debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/.nojekyll
+	rm -f debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/doctools.js
+	cd debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/ && ln -s /usr/share/javascript/sphinxdoc/1.0/doctools.js doctools.js
+	rm -f debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/language_data.js
+	cd debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/ && ln -s /usr/share/javascript/sphinxdoc/1.0/language_data.js language_data.js
+	rm -f debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/searchtools.js
+	cd debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/ && ln -s /usr/share/javascript/sphinxdoc/1.0/searchtools.js searchtools.js
+	rm -f debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/jquery.js
+	cd debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/ && ln -s /usr/share/javascript/jquery/jquery.js jquery.js
+	rm -f debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/underscore.js
+	cd debian/tmp/usr/share/doc/libiio0-doc/v0.26/python/_static/ && ln -s /usr/share/javascript/underscore/underscore.js underscore.js
+	rmdir debian/tmp/usr/share/doc/libiio0-doc/v0.26/libiio/doc/html/img
+	rmdir debian/tmp/usr/share/doc/libiio0-doc/v0.26/libiio/doc/html
+	rmdir debian/tmp/usr/share/doc/libiio0-doc/v0.26/libiio/doc/template
+	rm -rf bindings/python/examples/__pycache__
+	rm -rf bindings/python/__pycache__

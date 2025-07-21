@@ -1,0 +1,28 @@
+From 16af8091c5c71d70088c41a7631365d0175fd8bf Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Thu, 10 Aug 2023 19:40:11 -0400
+Subject: [PATCH 3/5] debian soversion udev rules
+
+Having SOVERSION in rules file name eases Debian upgrades.
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 858cb239..7043dbac 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -658,8 +658,8 @@ if (WITH_USB_BACKEND AND CMAKE_SYSTEM_NAME MATCHES "^Linux")
+ 	if (INSTALL_UDEV_RULE)
+ 		set(UDEV_RULES_INSTALL_DIR /lib/udev/rules.d CACHE PATH "default install path for udev rules")
+ 
+-		configure_file(libiio.rules.cmakein ${CMAKE_CURRENT_BINARY_DIR}/90-libiio.rules @ONLY)
+-		install(FILES ${CMAKE_CURRENT_BINARY_DIR}/90-libiio.rules DESTINATION ${UDEV_RULES_INSTALL_DIR})
++		configure_file(libiio.rules.cmakein ${CMAKE_CURRENT_BINARY_DIR}/90-libiio${LIBIIO_VERSION_MAJOR}.rules @ONLY)
++		install(FILES ${CMAKE_CURRENT_BINARY_DIR}/90-libiio${LIBIIO_VERSION_MAJOR}.rules DESTINATION ${UDEV_RULES_INSTALL_DIR})
+ 	endif()
+ endif()
+ 
+-- 
+2.39.2
+

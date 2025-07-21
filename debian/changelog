@@ -1,5 +1,308 @@
-template-repository (1.0-1) unstable; urgency=medium
+libiio (0.26-2) unstable; urgency=medium
 
-  * Initial release
+  * Configure with -DWITH_SERIAL_BACKEND=ON (Closes: #1093580)
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 26 Jan 2025 22:28:55 -0500
+
+libiio (0.26-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Fri, 25 Oct 2024 22:36:45 -0400
+
+libiio (0.25-7) unstable; urgency=medium
+
+  * Ack NMU - Thanks for the patch!
+  * bump Standards-Version (no changes needed)
+  * Mitigate M-A:same shared file loss due to /usr-move. (DEP17 P7 M10,
+    Closes: #1079058)
+  * Add libiio0.lintian-overrides file
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Mon, 19 Aug 2024 15:55:18 -0400
+
+libiio (0.25-6.1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * Mitigate M-A:same shared file loss due to /usr-move. (DEP17 P7 M10,
+    Closes: #-1)
+
+ -- Helmut Grohne <helmut@subdivi.de>  Mon, 19 Aug 2024 16:12:17 +0200
+
+libiio (0.25-6) unstable; urgency=medium
+
+  * UsrMerge build: /lib/systemd/... -> /usr/lib/systemd/... (Closes: #1073610)
+  * have debian/rules set SYSTEMD_UNIT_INSTALL_DIR and UDEV_RULES_INSTALL_DIR
+    direct install to /usr/lib paths without diversion
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 15 Aug 2024 06:12:23 -0400
+
+libiio (0.25-5) experimental; urgency=medium
+
+  * UsrMerge build: /lib/udev/... -> /usr/lib/udev/...
+  * upload to experimental for dumat
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 10 Jul 2024 23:58:01 -0400
+
+libiio (0.25-4) unstable; urgency=medium
+
+  * do not remove nonexistent man1 directory (Closes: #1058144)
+  * fixup autodep8-python3 test by specifying import_name
+  * strip build path from Doxygen for bindings/csharp
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 12 Dec 2023 20:39:07 -0500
+
+libiio (0.25-3) unstable; urgency=medium
+
+  * upload to unstable
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 05 Dec 2023 21:24:16 -0500
+
+libiio (0.25-2) experimental; urgency=medium
+
+  [ Chris Hofstaedtler ]
+  * Move udev files from /lib to /usr/lib, including protective diversion
+    against Multi-Arch: same file loss scenario (DEP17 P7 M10).
+    (Closes: #1056914)
+
+  [ A. Maitland Bottoms ]
+  * improve clean target to remove __pycache__ (Closes: #1045678)
+  * upload to experimental as requested in #1057190
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 03 Dec 2023 13:12:50 -0500
+
+libiio (0.25-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 10 Aug 2023 19:28:57 -0400
+
+libiio (0.24-4) unstable; urgency=medium
+
+  [ A. Maitland Bottoms ]
+  * install the right iiod.service file for iiod
+  * edit previous changelog entry for correctness
+  * Include the following Debian Janitor improvements from salsa.
+  
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Fix day-of-week for changelog entry 0.6.
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Mon, 23 Jan 2023 21:16:11 -0500
+
+libiio (0.24-3) unstable; urgency=medium
+
+  * fix python-libiio.install (Closes: #1021086)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 21 Jan 2023 17:37:55 -0400
+
+libiio (0.24-2) unstable; urgency=medium
+
+  * update python install (Closes: #1020104)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 21 Sep 2022 23:10:28 -0400
+
+libiio (0.24-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 10 Jul 2022 12:23:05 -0400
+
+libiio (0.23-2) unstable; urgency=medium
+
+  * update to v0.23-26-gfbf5adb2
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 27 Nov 2021 19:41:07 -0500
+
+libiio (0.23-1) experimental; urgency=medium
+
+  * New upstream release
+  * update to v0.23-19-g4e574547
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 09 Nov 2021 21:56:32 -0500
+
+libiio (0.21-2) unstable; urgency=medium
+
+  * update to 0.21-69-g99ef201
+  * reproducible man pages via upstream 0025 patch (Closes: #970498)
+  * add wildcards to ignore more .pyc files not-installed (Closes: #972913)
+  * move iiod.1 manpage to section 8 - iiod.8
+  * Add Documentation line to iiod.service file
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 31 Oct 2020 19:26:57 -0400
+
+libiio (0.21-1) unstable; urgency=medium
+
+  * New upstream release
+  * update to 0.21-32-g1bfc350
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Fri, 11 Sep 2020 20:33:29 -0400
+
+libiio (0.19-1) unstable; urgency=medium
+
+  * New upstream release
+  * update to v0.19-15-g490c4aa
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 18 Feb 2020 20:18:41 -0500
+
+libiio (0.18-2) unstable; urgency=medium
+
+  * No more Python2 (Closes: #936876)
+  * reproducuble documentation (Closes: #922520)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Fri, 15 Nov 2019 20:50:58 -0500
+
+libiio (0.18-1) unstable; urgency=medium
+
+  * New upstream release
+  * update to v0.18-16-gc0012d0
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 14 Aug 2019 21:34:58 -0400
+
+libiio (0.16-1) unstable; urgency=medium
+
+  * New upstream release
+  * Build for default Python3 (Closes: #913411, #912166)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 22 Nov 2018 10:02:41 -0500
+
+libiio (0.15-4) unstable; urgency=medium
+
+  * Update to v0.15-47-ged6709e
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 08 Nov 2018 21:20:51 -0500
+
+libiio (0.15-3) experimental; urgency=medium
+
+  * upload to experimental waiting for NEW python3-libiio
+  * add python3-iio package (Closes: #896905)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Mon, 24 Sep 2018 20:32:03 -0400
+
+libiio (0.15-2.1) UNRELEASED; urgency=medium
+
+  * d/copyright: Use https protocol in Format field
+  * d/changelog: Remove trailing whitespaces
+
+ -- Ondřej Nový <onovy@debian.org>  Mon, 01 Oct 2018 10:06:53 +0200
+
+libiio (0.15-2) unstable; urgency=medium
+
+  * Update to v0.15-6-gc80412c
+  * install all utils
+  * install udev rules
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 18 Sep 2018 19:13:32 -0700
+
+libiio (0.15-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 13 May 2018 11:00:37 -0400
+
+libiio (0.14-1) unstable; urgency=medium
+
+  * New upstream, update to v0.14-15-g8ac1893
+  * Remove cil components while Mono is broken on Debian
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 07 Apr 2018 21:40:53 -0400
+
+libiio (0.11-1) unstable; urgency=medium
+
+  * New upstream release
+    Add quiet mode to iio_attr
+    Don't clear local channel enabled state on buffer destruction
+       in the local backend
+    Code style cleanups in iio_attr and ad9361-iiostream
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 15 Nov 2017 23:43:54 -0500
+
+libiio (0.10-3) unstable; urgency=medium
+
+  * Add libserialport and libusb build dependencies
+  * limit cil architectures
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 05 Sep 2017 21:07:13 -0400
+
+libiio (0.10-2) unstable; urgency=medium
+
+  * linux-only iiod
+  * Adopt package
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 05 Sep 2017 20:34:24 -0400
+
+libiio (0.10-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 23 Aug 2017 22:14:36 -0400
+
+libiio (0.7-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 10 Jul 2016 11:34:33 -0400
+
+libiio (0.6.187-1) unstable; urgency=medium
+
+  * update to v0.6-187-g5d107e9
+  * put iiod in Section: net (Closes: #814703)
+  * libiio0-cil arch any (not all) (Closes: #816981)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 28 Apr 2016 00:48:43 -0400
+
+libiio (0.6.40-1) unstable; urgency=medium
+
+  * Initial upload to Debian (closes: #814032)
+  * Sponsor libiio for Paul Cercueil
+  * Update to v0.6-40-g93b5950
+  * repackage as 3.0 (quilt)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 07 Feb 2016 15:10:46 -0500
+
+libiio (0.6) unstable; urgency=low
+  * Improved parsing of sysfs files
+  * Added iio_reg test program
+  * Revert to regular I/O in the network backend if zerocopy is not available
+  * Fix bugs reported by Valgrind
+  * IIOD can now run interactively from the terminal
+  * Improved I/O handling in IIOD
+  * New API functions
+
+ -- Paul Cercueil <paul.cercueil@analog.com>  Tue, 04 Dec 2015 12:58:52 +0200
+
+libiio (0.5) unstable; urgency=low
+
+  * Fix locales support on Windows and MinGW
+  * Add iio_adi_xflow_check tool
+  * Boost client->server transfers using delayed error reporting
+  * Enable support for zero-copy transfers in the network backend
+  * Created packages for the Python and C# bindings
+  * Lots of improvements on the Python and C# bindings
+  * Enhanced error reporting
+
+ -- Paul Cercueil <paul.cercueil@analog.com>  Tue, 24 Mar 2015 13:19:22 +0200
+
+libiio (0.4) unstable; urgency=low
+
+  * Boost communication speed of the network backend
+  * Fix socket I/O timeout on UNIX systems
+  * New API function: iio_context_get_description
+
+ -- Paul Cercueil <paul.cercueil@analog.com>  Fri, 6 Feb 2015 11:42:01 +0200
+
+libiio (0.3) unstable; urgency=low
+
+  * Improved error handling
+  * IPv6 support in both libiio and iiod
+  * Enhanced CMake build scripts (now builds under MinGW and Windows)
+  * Old Makefile-based build system has been dropped
+  * Scripts to create Debian packages
+
+ -- Paul Cercueil <paul.cercueil@analog.com>  Fri, 12 Dec 2014 17:14:59 +0200
+
+libiio (0.2) unstable; urgency=low
+
+  * Initial release.
+
+ -- Paul Cercueil <paul.cercueil@analog.com>  Fri, 28 Nov 2014 14:51:18 +0200
