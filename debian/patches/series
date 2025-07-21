@@ -1,0 +1,5 @@
+reproducible-build.patch
+python-setup-libiio
+debian-soversion-udev-rules
+man-no-WC
+service-documentation

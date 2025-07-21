@@ -1,0 +1,20 @@
+From 624f5222fa128249fdb1235a7c284b758052c629 Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Thu, 10 Aug 2023 19:41:52 -0400
+Subject: [PATCH 4/5] service documentation
+
+Add Documentation to iiod.service file.
+---
+ iiod/init/iiod.service.cmakein | 1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/iiod/init/iiod.service.cmakein
++++ b/iiod/init/iiod.service.cmakein
+@@ -8,6 +8,7 @@
+ Description=IIO Daemon
+ Requires=systemd-udev-settle.service
+ After=network.target systemd-udev-settle.service
++Documentation=man:iiod(8)
+ @CMAKE_SERVICE_PATH@
+ 
+ [Service]

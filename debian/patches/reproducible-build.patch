@@ -1,0 +1,64 @@
+From 421d73552585f898b1e2cc9c4394e9dd3c17dfed Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Thu, 10 Aug 2023 19:32:56 -0400
+Subject: [PATCH 1/5] reproducible build
+Origin: Chris Lamb <lamby@debian.org>
+
+Use Doxygen settings to keep build path out of generated files.
+---
+ Doxyfile.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--- a/Doxyfile.in
++++ b/Doxyfile.in
+@@ -160,7 +160,8 @@
+ # will be relative from the directory where doxygen is started.
+ # This tag requires that the tag FULL_PATH_NAMES is set to YES.
+ 
+-STRIP_FROM_PATH        = @DOXYGEN_STRIP_FROM_PATH@
++STRIP_FROM_PATH        = @CMAKE_BINARY_DIR@ \
++		       @CMAKE_SOURCE_DIR@
+ 
+ # The STRIP_FROM_INC_PATH tag can be used to strip a user-defined part of the
+ # path mentioned in the documentation of a class, which tells the reader which
+@@ -169,7 +170,8 @@
+ # specify the list of include paths that are normally passed to the compiler
+ # using the -I flag.
+ 
+-STRIP_FROM_INC_PATH    =
++STRIP_FROM_INC_PATH    = @CMAKE_SOURCE_DIR@ \
++		       @CMAKE_BINARY_DIR@
+ 
+ # If the SHORT_NAMES tag is set to YES, doxygen will generate much shorter (but
+ # less readable) file names. This can be useful is your file systems doesn't
+@@ -1287,7 +1289,7 @@
+ # The default value is: NO.
+ # This tag requires that the tag GENERATE_HTML is set to YES.
+ 
+-HTML_TIMESTAMP         = YES
++HTML_TIMESTAMP         = NO
+ 
+ # If the HTML_DYNAMIC_MENUS tag is set to YES then the generated HTML
+ # documentation will contain a main index with vertical navigation menus that
+--- a/bindings/csharp/Doxyfile.in
++++ b/bindings/csharp/Doxyfile.in
+@@ -160,7 +160,8 @@
+ # will be relative from the directory where doxygen is started.
+ # This tag requires that the tag FULL_PATH_NAMES is set to YES.
+ 
+-STRIP_FROM_PATH        =
++STRIP_FROM_PATH        = @CMAKE_SOURCE_DIR@ \
++		       @CMAKE_BINARY_DIR@
+ 
+ # The STRIP_FROM_INC_PATH tag can be used to strip a user-defined part of the
+ # path mentioned in the documentation of a class, which tells the reader which
+@@ -169,7 +170,8 @@
+ # specify the list of include paths that are normally passed to the compiler
+ # using the -I flag.
+ 
+-STRIP_FROM_INC_PATH    =
++STRIP_FROM_INC_PATH    = @CMAKE_SOURCE_DIR@ \
++		       @CMAKE_BINARY_DIR@
+ 
+ # If the SHORT_NAMES tag is set to YES, doxygen will generate much shorter (but
+ # less readable) file names. This can be useful is your file systems doesn't

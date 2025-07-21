@@ -1,0 +1,2 @@
+usr/lib/*/libiio.so.0*
+usr/lib/udev/rules.d/90-libiio0.rules
